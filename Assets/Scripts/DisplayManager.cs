@@ -14,11 +14,18 @@ public class DisplayManager : MonoBehaviour
     [SerializeField] Image _UI_character1;
     [BoxGroup("characters")]
     [SerializeField] Image _UI_character2;
+    [BoxGroup("characters")]
+    [SerializeField] Color _grayedOutCharacterColor;
+    [BoxGroup("characters")]
+    [SerializeField] Color _vibrantCharacterColor;
+
 
     [BoxGroup("mainTextbox")]
     [SerializeField] Image _UI_textbox;
     [BoxGroup("mainTextbox")]
     [SerializeField] TextMeshProUGUI _UI_textboxTMP;
+    [BoxGroup("mainTextbox")]
+    [SerializeField] TextMeshProUGUI _UI_nameTextboxTMP;
 
     [BoxGroup("narrationTextbox")]
     [SerializeField] Image _UI_narrationTextbox;
@@ -34,7 +41,6 @@ public class DisplayManager : MonoBehaviour
     public void Toggle_UI_Character1()
     {
         bool opposite = _UI_character1.IsActive();
-
         _UI_character1.gameObject.SetActive(!opposite);
     }
     [BoxGroup("characters")]
@@ -59,6 +65,13 @@ public class DisplayManager : MonoBehaviour
         bool opposite = _UI_textboxTMP.IsActive();
         _UI_textboxTMP.gameObject.SetActive(!opposite);
     }
+    [BoxGroup("mainTextbox")]
+    [Button]
+    public void Toggle_UI_NameTextboxTMP()
+    {
+        bool opposite = _UI_nameTextboxTMP.IsActive();
+        _UI_nameTextboxTMP.gameObject.SetActive(!opposite);
+    }
 
     [BoxGroup("narrationTextbox")]
     [Button]
@@ -77,6 +90,68 @@ public class DisplayManager : MonoBehaviour
 
    
 
+    /// <summary>
+    /// Visuals outside of talking -> called from "Script"
+    /// </summary>
+    public void Set_c1Visuals(Character c, CharacterEmotionType emotionType )
+    {
+        _UI_nameTextboxTMP.text = c.LastName + " " + c.FirstName;
+        _UI_nameTextboxTMP.color = c.NameColor;
+        _UI_character1.color = _vibrantCharacterColor;
+        
+        if (c.emotions.ContainsKey(emotionType))
+        {
+            _UI_character1.sprite = c.emotions[emotionType];
+            return;
+        }
+        Debug.LogError("emotionType " + emotionType.ToString() + " does not exist.");
+    }
 
-    
+    public void Set_c1GrayedOut(Character c, CharacterEmotionType emotionType)
+    {
+        _UI_character1.color = _grayedOutCharacterColor;
+
+        if (c.emotions.ContainsKey(emotionType))
+        {
+            _UI_character1.sprite = c.emotions[emotionType];
+            return;
+        }
+        Debug.LogError("emotionType " + emotionType.ToString() + " does not exist.");
+    }
+
+    public void Set_c2Visuals(Character c, CharacterEmotionType emotionType)
+    {
+        _UI_nameTextboxTMP.text = c.LastName + " " + c.FirstName;
+        _UI_nameTextboxTMP.color = c.NameColor;
+        _UI_character2.color = _vibrantCharacterColor;
+
+        if (c.emotions.ContainsKey(emotionType))
+        {
+            _UI_character2.sprite = c.emotions[emotionType];
+            return;
+        }
+        Debug.LogError("emotionType " + emotionType.ToString() + " does not exist.");
+    }
+
+    public void Set_c2GrayedOut(Character c, CharacterEmotionType emotionType)
+    {
+        _UI_character2.color = _grayedOutCharacterColor;
+
+        if (c.emotions.ContainsKey(emotionType))
+        {
+            _UI_character2.sprite = c.emotions[emotionType];
+            return;
+        }
+        Debug.LogError("emotionType " + emotionType.ToString() + " does not exist.");
+    }
+
+
+    /// <summary>
+    /// Talking visuals -> called from "script"
+    /// </summary>
+    public void Set_c1Talking(Character c, CharacterEmotionType emotionType)
+    {
+
+    }
+
 }
