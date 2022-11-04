@@ -12,10 +12,18 @@ public class Script : MonoBehaviour
 
     DisplayManager _displayManager;
 
-    private void Start()
+    public void Init()
     {
-        _displayManager = FindObjectOfType<DisplayManager>();
+        LoadCharacters();
         StartScript();
+    }
+
+    void LoadCharacters()
+    {
+        yukari_Takeba.Init();
+        mitsuru_Kirijo.Init();
+        _displayManager = FindObjectOfType<DisplayManager>();
+        _displayManager.Set_CharacterVisuals(yukari_Takeba, WhichDisplayCharacter.c1, CharacterEmotionType.Blush);
     }
 
     void StartScript()

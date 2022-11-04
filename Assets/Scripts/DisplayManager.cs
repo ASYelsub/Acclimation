@@ -6,7 +6,7 @@ using TMPro;
 using Sirenix.OdinInspector;
 
 //holds references for all the sprites and behaviours for turning them on/off
-
+public enum WhichDisplayCharacter { c1, c2 };
 [ExecuteInEditMode]
 public class DisplayManager : MonoBehaviour
 {
@@ -30,8 +30,8 @@ public class DisplayManager : MonoBehaviour
     [BoxGroup("narrationTextbox")]
     [SerializeField] Image _UI_narrationTextbox;
     [BoxGroup("narrationTextbox")]
-    [SerializeField] TextMeshProUGUI  _UI_narrationTextboxTMP;
- 
+    [SerializeField] TextMeshProUGUI _UI_narrationTextboxTMP;
+
 
     /// <summary>
     /// Toggle UI Objects
@@ -88,69 +88,45 @@ public class DisplayManager : MonoBehaviour
         _UI_narrationTextboxTMP.gameObject.SetActive(!opposite);
     }
 
-   
+
 
     /// <summary>
     /// Visuals outside of talking -> called from "Script"
+    /// use "count" for a grayed out character
     /// </summary>
-    public void Set_c1Visuals(Character c, CharacterEmotionType emotionType )
+    public void Set_CharacterVisuals(Character c, WhichDisplayCharacter dC, CharacterEmotionType emotionType)
     {
-        _UI_nameTextboxTMP.text = c.LastName + " " + c.FirstName;
-        _UI_nameTextboxTMP.color = c.NameColor;
-        _UI_character1.color = _vibrantCharacterColor;
-        
-        if (c.emotions.ContainsKey(emotionType))
+        Image displayCharacter = _UI_character1;
+
+        if (dC == WhichDisplayCharacter.c2)
         {
-            _UI_character1.sprite = c.emotions[emotionType];
+            displayCharacter = _UI_character2;
+        }
+
+        if (emotionType == CharacterEmotionType.Count)
+        {
+            displayCharacter.color = _grayedOutCharacterColor;
             return;
         }
-        Debug.LogError("emotionType " + emotionType.ToString() + " does not exist.");
-    }
 
-    public void Set_c1GrayedOut(Character c, CharacterEmotionType emotionType)
-    {
-        _UI_character1.color = _grayedOutCharacterColor;
-
-        if (c.emotions.ContainsKey(emotionType))
-        {
-            _UI_character1.sprite = c.emotions[emotionType];
-            return;
-        }
-        Debug.LogError("emotionType " + emotionType.ToString() + " does not exist.");
-    }
-
-    public void Set_c2Visuals(Character c, CharacterEmotionType emotionType)
-    {
-        _UI_nameTextboxTMP.text = c.LastName + " " + c.FirstName;
-        _UI_nameTextboxTMP.color = c.NameColor;
-        _UI_character2.color = _vibrantCharacterColor;
+        displayCharacter.color = _vibrantCharacterColor;
 
         if (c.emotions.ContainsKey(emotionType))
         {
-            _UI_character2.sprite = c.emotions[emotionType];
+            displayCharacter.sprite = c.emotions[emotionType];
             return;
         }
+
         Debug.LogError("emotionType " + emotionType.ToString() + " does not exist.");
     }
-
-    public void Set_c2GrayedOut(Character c, CharacterEmotionType emotionType)
-    {
-        _UI_character2.color = _grayedOutCharacterColor;
-
-        if (c.emotions.ContainsKey(emotionType))
-        {
-            _UI_character2.sprite = c.emotions[emotionType];
-            return;
-        }
-        Debug.LogError("emotionType " + emotionType.ToString() + " does not exist.");
-    }
-
 
     /// <summary>
-    /// Talking visuals -> called from "script"
+    /// When text appears in the textbox -> called from "script"
     /// </summary>
-    public void Set_c1Talking(Character c, CharacterEmotionType emotionType)
+    public void Set_Text(Character c, CharacterEmotionType emotionType)
     {
+        _UI_nameTextboxTMP.text = c.LastName + " " + c.FirstName;
+        _UI_nameTextboxTMP.color = c.NameColor;
 
     }
 
