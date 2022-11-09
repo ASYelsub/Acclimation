@@ -11,27 +11,65 @@ public class Script : MonoBehaviour
     public Character yukari_Takeba;
     public Character mitsuru_Kirijo;
 
-    DisplayManager _displayManager;
+    DisplayManager _dm;
+    bool _scriptStarted = false;
+    bool _canContinue = false;
 
     public void Init()
     {
         LoadCharacters();
-        StartScript();
     }
 
     void LoadCharacters()
     {
         yukari_Takeba.Init();
         mitsuru_Kirijo.Init();
-        _displayManager = FindObjectOfType<DisplayManager>();
-        _displayManager.Set_CharVisuals(yukari_Takeba, WhichDisplayCharacter.c1, CharacterEmotionType.Blush);
-        _displayManager.Set_CharVisuals(mitsuru_Kirijo, WhichDisplayCharacter.c2, CharacterEmotionType.Angry);
-        _displayManager.Set_BGVisual(backgrounds[0]);
+        _dm = FindObjectOfType<DisplayManager>();
+        _dm.Set_CharVisuals(yukari_Takeba, DisplayPos.c1, CharEmotion.Blush);
+        _dm.Set_CharVisuals(mitsuru_Kirijo, DisplayPos.c2, CharEmotion.Angry);
+        _dm.Set_BGVisual(backgrounds[0]);
 
+    }
+
+    private void Update()
+    {
+        if(!_scriptStarted && Input.GetKeyDown(KeyCode.Space))
+        {
+            StartScript();
+            return;
+        }
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            ContinueScript();
+        }
     }
 
     void StartScript()
     {
-
+        _scriptStarted = true;
+        _dm.Set_Text(yukari_Takeba, "Hello I'm in another video game!");
+       
     }
+
+    void ContinueScript()
+    {
+        
+    }
+
+    /// <summary>
+    /// Coroutine to check if player presses space or not.
+    /// </summary>
+    /// <returns></returns>
+   IEnumerator WaitForSpacePress()
+    {
+        while (!Input.GetKeyDown(KeyCode.Space))
+        {
+            yield return null;
+        }
+        yield break;
+    }
+
+
+
+    
 }

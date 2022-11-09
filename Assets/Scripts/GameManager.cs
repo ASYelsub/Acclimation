@@ -16,7 +16,7 @@ public class GameManager : MonoBehaviour
 
 }
 
-public enum CharacterEmotionType { Angry, Sad, Happy, Neutral, Blush, Surprise, Count };
+public enum CharEmotion { Angry, Sad, Happy, Neutral, Blush, Surprise, Count };
 
 [System.Serializable]
 public class Character
@@ -35,21 +35,21 @@ public class Character
 
     [HideInInspector] public string FirstName { get => _firstName; set => _firstName = value; }
     [HideInInspector] public string LastName { get => _lastName; set => _lastName = value; }
-    [HideInInspector] public CharacterEmotionType CurrentEmotion { get => _currentEmotion; set => _currentEmotion = value; }
+    [HideInInspector] public CharEmotion CurrentEmotion { get => _currentEmotion; set => _currentEmotion = value; }
     [HideInInspector] public Color NameColor { get => _nameColor; set => _nameColor = value; }
 
-    CharacterEmotionType _currentEmotion = CharacterEmotionType.Neutral;
+    CharEmotion _currentEmotion = CharEmotion.Neutral;
 
-    public Dictionary<CharacterEmotionType, Sprite> emotions = new Dictionary<CharacterEmotionType, Sprite>();
+    public Dictionary<CharEmotion, Sprite> emotions = new Dictionary<CharEmotion, Sprite>();
 
     public void Init()
     {
-        emotions.Add(CharacterEmotionType.Angry, _angrySprite);
-        emotions.Add(CharacterEmotionType.Sad, _sadSprite);
-        emotions.Add(CharacterEmotionType.Happy, _happySprite);
-        emotions.Add(CharacterEmotionType.Neutral, _neutralSprite);
-        emotions.Add(CharacterEmotionType.Blush, _blushSprite);
-        emotions.Add(CharacterEmotionType.Surprise, _surpriseSprite);
+        emotions.Add(CharEmotion.Angry, _angrySprite);
+        emotions.Add(CharEmotion.Sad, _sadSprite);
+        emotions.Add(CharEmotion.Happy, _happySprite);
+        emotions.Add(CharEmotion.Neutral, _neutralSprite);
+        emotions.Add(CharEmotion.Blush, _blushSprite);
+        emotions.Add(CharEmotion.Surprise, _surpriseSprite);
     }
 
 }

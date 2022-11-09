@@ -468,6 +468,7 @@ MonoBehaviour:
   _UI_nameTextboxTMP: {fileID: 633457815}
   _UI_narrationTextbox: {fileID: 617784046}
   _UI_narrationTextboxTMP: {fileID: 500059732}
+  _secondsToType: 0.243
 --- !u!1 &617784044
 GameObject:
   m_ObjectHideFlags: 0
