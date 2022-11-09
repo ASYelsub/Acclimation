@@ -462,6 +462,7 @@ MonoBehaviour:
   _UI_character2: {fileID: 162761282}
   _grayedOutCharacterColor: {r: 0.41509432, g: 0.41509432, b: 0.41509432, a: 1}
   _vibrantCharacterColor: {r: 1, g: 1, b: 1, a: 1}
+  _UI_background: {fileID: 965400517}
   _UI_textbox: {fileID: 1518357981}
   _UI_textboxTMP: {fileID: 1838971383}
   _UI_nameTextboxTMP: {fileID: 633457815}
@@ -1431,6 +1432,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ad9d0c101fda8a4fb2bbc2ddd1404c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  backgrounds:
+  - {fileID: 21300000, guid: e6a6624ab013b8e44beddfa2668afb65, type: 3}
   yukari_Takeba:
     _firstName: Yukari
     _lastName: Takeba

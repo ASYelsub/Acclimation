@@ -10,6 +10,7 @@ public enum WhichDisplayCharacter { c1, c2 };
 [ExecuteInEditMode]
 public class DisplayManager : MonoBehaviour
 {
+
     [BoxGroup("characters")]
     [SerializeField] Image _UI_character1;
     [BoxGroup("characters")]
@@ -18,6 +19,9 @@ public class DisplayManager : MonoBehaviour
     [SerializeField] Color _grayedOutCharacterColor;
     [BoxGroup("characters")]
     [SerializeField] Color _vibrantCharacterColor;
+
+    [BoxGroup("background")]
+    [SerializeField] Image _UI_background;
 
 
     [BoxGroup("mainTextbox")]
@@ -94,7 +98,7 @@ public class DisplayManager : MonoBehaviour
     /// Visuals outside of talking -> called from "Script"
     /// use "count" for a grayed out character
     /// </summary>
-    public void Set_CharacterVisuals(Character c, WhichDisplayCharacter dC, CharacterEmotionType emotionType)
+    public void Set_CharVisuals(Character c, WhichDisplayCharacter dC, CharacterEmotionType emotionType)
     {
         Image displayCharacter = _UI_character1;
 
@@ -121,13 +125,22 @@ public class DisplayManager : MonoBehaviour
     }
 
     /// <summary>
+    /// Changing the background look
+    /// </summary>
+    /// <param name="s"></param>
+    public void Set_BGVisual(Sprite s)
+    {
+        _UI_background.sprite = s;
+    }
+
+    /// <summary>
     /// When text appears in the textbox -> called from "script"
     /// </summary>
     public void Set_Text(Character c, CharacterEmotionType emotionType)
     {
         _UI_nameTextboxTMP.text = c.LastName + " " + c.FirstName;
         _UI_nameTextboxTMP.color = c.NameColor;
-
     }
 
+    
 }
