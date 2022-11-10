@@ -233,7 +233,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 2.5, y: 0}
-  m_SizeDelta: {x: -15.000004, y: 0}
+  m_SizeDelta: {x: -15, y: -8}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &500059732
 MonoBehaviour:
@@ -468,7 +468,7 @@ MonoBehaviour:
   _UI_nameTextboxTMP: {fileID: 633457815}
   _UI_narrationTextbox: {fileID: 617784046}
   _UI_narrationTextboxTMP: {fileID: 500059732}
-  _secondsToType: 0.243
+  _secondsToType: 0.059
 --- !u!1 &617784044
 GameObject:
   m_ObjectHideFlags: 0
@@ -632,8 +632,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 30
-  m_fontSizeBase: 30
+  m_fontSize: 20
+  m_fontSizeBase: 20
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -717,7 +717,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 5, y: 0}
+  m_SizeDelta: {x: 3, y: 0}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!114 &746038938
 MonoBehaviour:
@@ -896,7 +896,7 @@ RectTransform:
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 5, y: 0}
+  m_SizeDelta: {x: 3, y: 0}
   m_Pivot: {x: 1, y: 0.5}
 --- !u!114 &958878755
 MonoBehaviour:
@@ -1112,7 +1112,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 5}
+  m_SizeDelta: {x: 0, y: 3}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &1014298228
 MonoBehaviour:
@@ -1187,7 +1187,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 5}
+  m_SizeDelta: {x: 0, y: 3}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &1241229462
 MonoBehaviour:
@@ -1262,7 +1262,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 5}
+  m_SizeDelta: {x: 0, y: 3}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!114 &1319730779
 MonoBehaviour:
@@ -1337,7 +1337,7 @@ RectTransform:
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 5, y: 0}
+  m_SizeDelta: {x: 3, y: 0}
   m_Pivot: {x: 1, y: 0.5}
 --- !u!114 &1334572584
 MonoBehaviour:
@@ -1434,7 +1434,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   backgrounds:
-  - {fileID: 21300000, guid: e6a6624ab013b8e44beddfa2668afb65, type: 3}
+  - {fileID: 21300000, guid: 6fa9d449bbcf0403ca31e99e7bd476e4, type: 3}
   yukari_Takeba:
     _firstName: Yukari
     _lastName: Takeba
@@ -1570,7 +1570,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 5}
+  m_SizeDelta: {x: 0, y: 3}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!114 &1564892902
 MonoBehaviour:
@@ -1778,7 +1778,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 1
   m_HorizontalAlignment: 1
   m_VerticalAlignment: 256
   m_textAlignment: 65535
@@ -1857,7 +1857,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 5, y: 0}
+  m_SizeDelta: {x: 3, y: 0}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!114 &1896609965
 MonoBehaviour:
