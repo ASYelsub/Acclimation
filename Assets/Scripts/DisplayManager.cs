@@ -10,7 +10,7 @@ public enum DisplayPos { c1, c2 };
 [ExecuteInEditMode]
 public class DisplayManager : MonoBehaviour
 {
-    
+
     [BoxGroup("Characters")]
     [SerializeField] Image _UI_character1;
     [BoxGroup("Characters")]
@@ -39,8 +39,9 @@ public class DisplayManager : MonoBehaviour
     /// <summary>
     /// amount of seconds it takes to type out a letter
     /// </summary>
-    [SerializeField][Range(0,1)]
-    float _secondsToType; 
+    [SerializeField]
+    [Range(0f, .1f)]
+    float _secondsToType;
 
     /// <summary>
     /// Toggle UI Objects
@@ -147,17 +148,17 @@ public class DisplayManager : MonoBehaviour
         _UI_nameTextboxTMP.color = c.NameColor;
         StartCoroutine(TypeWrite(text));
     }
-   
+
     IEnumerator TypeWrite(string text)
     {
         _UI_textboxTMP.text = "";
-        
+
         foreach (char c in text)
         {
             _UI_textboxTMP.text += c;
             yield return new WaitForSeconds(_secondsToType);
         }
-       
+
     }
 
 
