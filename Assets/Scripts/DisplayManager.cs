@@ -39,9 +39,9 @@ public class DisplayManager : MonoBehaviour
     /// <summary>
     /// amount of seconds it takes to type out a letter
     /// </summary>
-    [SerializeField]
     [Range(0f, .1f)]
-    float _secondsToType;
+    public float secondsToType;
+
 
     /// <summary>
     /// Toggle UI Objects
@@ -142,24 +142,18 @@ public class DisplayManager : MonoBehaviour
     /// <summary>
     /// When text appears in the textbox -> called from "script"
     /// </summary>
-    public void Set_Text(Character c, string text)
+    public void Prepare_Char_Talk(Character c)
     {
         _UI_nameTextboxTMP.text = c.LastName + " " + c.FirstName;
         _UI_nameTextboxTMP.color = c.NameColor;
-        StartCoroutine(TypeWrite(text));
     }
 
-    IEnumerator TypeWrite(string text)
+    public void SetText(string text)
     {
-        _UI_textboxTMP.text = "";
-
-        foreach (char c in text)
-        {
-            _UI_textboxTMP.text += c;
-            yield return new WaitForSeconds(_secondsToType);
-        }
-
+        _UI_textboxTMP.text = text;
     }
+
+
 
 
 }
