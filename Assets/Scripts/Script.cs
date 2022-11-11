@@ -52,13 +52,24 @@ public class Script : MonoBehaviour
         yield break;
     }
 
-
+    /// <summary>
+    /// Writer-friendly shortcut for having Yukari talk.
+    /// </summary>
+    /// <returns></returns>
     void YukariSay(string text)
     {
         _dm.Prepare_Char_Talk(yukari_Takeba);
         StartCoroutine(TypeWrite(text));
     }
 
+
+
+    ///<WRITER><FUNCTIONALITY><BELOW>///
+
+    /// <summary>
+    /// Routine responsible for displaying text to the screen with the displayManager in a type-writer fashion.
+    /// </summary>
+    /// <returns></returns>
 
     IEnumerator TypeWrite(string text)
     {
@@ -72,24 +83,13 @@ public class Script : MonoBehaviour
             yield return new WaitForSeconds(_dm.secondsToType);
         }
         _typing = false;
+        _dm.ResetTypeSpeed();
         yield break;
     }
 
 
     ///<WAIT><FOR><X><ROUTINES>///
 
-    /// <summary>
-    /// Coroutine to check if player presses space or not.
-    /// </summary>
-    /// <returns></returns>
-    IEnumerator WaitForSpacePress()
-    {
-        while (!Input.GetKeyDown(KeyCode.Space))
-        {
-            yield return null;
-        }
-        yield break;
-    }
 
     /// <summary>
     /// Coroutine to check if player presses any of the continue buttons.
@@ -106,5 +106,21 @@ public class Script : MonoBehaviour
     }
 
 
+    ///<UPDATE>///
+
+    /// <summary>
+    /// Mainly here to check if player is trying to speed up text by spamming any of the buttons.
+    /// </summary>
+    /// <returns></returns>
+    void Update()
+    {
+        if (_typing)
+        {
+            if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Return) || Input.GetMouseButtonDown(0))
+            {
+                _dm.SpeedUpTyping();
+            }
+        }
+    }
 
 }

@@ -154,6 +154,23 @@ public class DisplayManager : MonoBehaviour
     }
 
 
+    float oldTypeSpeed;
+    [HideInInspector] public bool typingSped = false;
+    public void SpeedUpTyping()
+    {
+        if (typingSped)
+        {
+            return;
+        }
+        oldTypeSpeed = secondsToType;
+        secondsToType /= 10f;
+        typingSped = true;
+    }
 
+    public void ResetTypeSpeed()
+    {
+        secondsToType = oldTypeSpeed;
+        typingSped = false;
+    }
 
 }
