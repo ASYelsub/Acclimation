@@ -144,6 +144,10 @@ public class DisplayManager : MonoBehaviour
     /// </summary>
     public void PrepareCharTalk(Character c)
     {
+        if (!_UI_nameTextboxTMP.isActiveAndEnabled)
+        {
+            Toggle_UI_NameTextboxTMP();
+        }
         _UI_nameTextboxTMP.text = c.LastName + " " + c.FirstName;
         _UI_nameTextboxTMP.color = c.NameColor;
     }

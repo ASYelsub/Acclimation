@@ -401,8 +401,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 20
-  m_fontSizeBase: 20
+  m_fontSize: 15
+  m_fontSizeBase: 15
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -413,7 +413,7 @@ MonoBehaviour:
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
-  m_lineSpacing: 0
+  m_lineSpacing: -50
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
@@ -588,6 +588,7 @@ MonoBehaviour:
   _UI_narrationTextbox: {fileID: 617784046}
   _UI_narrationTextboxTMP: {fileID: 500059732}
   secondsToType: 0.0216
+  typingSped: 0
 --- !u!1 &617784044
 GameObject:
   m_ObjectHideFlags: 0
@@ -699,8 +700,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -253.31, y: -13.349998}
-  m_SizeDelta: {x: -516.79, y: -38.46}
+  m_AnchoredPosition: {x: -264.63, y: -13.349998}
+  m_SizeDelta: {x: -539.42, y: -38.46}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &633457815
 MonoBehaviour:
@@ -751,8 +752,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 20
-  m_fontSizeBase: 20
+  m_fontSize: 15
+  m_fontSizeBase: 15
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
