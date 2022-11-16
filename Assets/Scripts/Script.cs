@@ -34,10 +34,10 @@ public class Script : MonoBehaviour
         yukari_Takeba.Init();
         mitsuru_Kirijo.Init();
         _dm = FindObjectOfType<DisplayManager>();
-        _dm.Set_CharVisuals(yukari_Takeba, DisplayPos.c1, CharEmotion.Blush);
-        _dm.Set_CharVisuals(mitsuru_Kirijo, DisplayPos.c2, CharEmotion.Angry);
+        _dm.SetCharVisuals(yukari_Takeba, DisplayPos.c1, CharEmotion.Blush);
+        _dm.SetCharVisuals(mitsuru_Kirijo, DisplayPos.c2, CharEmotion.Angry);
         _backgrounds.Add(BackgroundNames.coffeeShop, backgrounds[0]);
-        _dm.Set_BGVisual(backgrounds[0]);
+        _dm.SetBGVisual(backgrounds[0]);
     }
 
 
@@ -49,6 +49,8 @@ public class Script : MonoBehaviour
         YukariSay("Hello I'm in another video game!");
         yield return WaitForContinue();
         YukariSay("Space press works?");
+        yield return WaitForContinue();
+        NarSay("Narration is a thing that happens!");
         yield break;
     }
 
@@ -58,10 +60,20 @@ public class Script : MonoBehaviour
     /// <returns></returns>
     void YukariSay(string text)
     {
-        _dm.Prepare_Char_Talk(yukari_Takeba);
+        _dm.PrepareCharTalk(yukari_Takeba);
+        StartCoroutine(TypeWrite(text));
+    }
+    
+    void MitsuruSay(string text)
+    {
+        _dm.PrepareCharTalk(mitsuru_Kirijo);
         StartCoroutine(TypeWrite(text));
     }
 
+    void NarSay(string text)
+    {
+        StartCoroutine(TypeWriteNar(text));
+    }
 
 
     ///<WRITER><FUNCTIONALITY><BELOW>///
@@ -83,13 +95,34 @@ public class Script : MonoBehaviour
             yield return new WaitForSeconds(_dm.secondsToType);
         }
         _typing = false;
-        _dm.ResetTypeSpeed();
+        if (_dm.typingSped) {
+            _dm.ResetTypeSpeed();
+        }
+        
+        yield break;
+    }
+
+    IEnumerator TypeWriteNar(string text)
+    {
+        _typing = true;
+        string txt = "";
+
+        foreach (char c in text)
+        {
+            txt += c;
+            _dm.SetTextNar(txt);
+            yield return new WaitForSeconds(_dm.secondsToType);
+        }
+        _typing = false;
+        if (_dm.typingSped)
+        {
+            _dm.ResetTypeSpeed();
+        }
         yield break;
     }
 
 
     ///<WAIT><FOR><X><ROUTINES>///
-
 
     /// <summary>
     /// Coroutine to check if player presses any of the continue buttons.

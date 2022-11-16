@@ -104,7 +104,7 @@ public class DisplayManager : MonoBehaviour
     /// Visuals outside of talking -> called from "Script"
     /// use "count" for a grayed out character
     /// </summary>
-    public void Set_CharVisuals(Character c, DisplayPos dC, CharEmotion emotionType)
+    public void SetCharVisuals(Character c, DisplayPos dC, CharEmotion emotionType)
     {
         Image displayCharacter = _UI_character1;
 
@@ -134,7 +134,7 @@ public class DisplayManager : MonoBehaviour
     /// Changing the background look
     /// </summary>
     /// <param name="s"></param>
-    public void Set_BGVisual(Sprite s)
+    public void SetBGVisual(Sprite s)
     {
         _UI_background.sprite = s;
     }
@@ -142,7 +142,7 @@ public class DisplayManager : MonoBehaviour
     /// <summary>
     /// When text appears in the textbox -> called from "script"
     /// </summary>
-    public void Prepare_Char_Talk(Character c)
+    public void PrepareCharTalk(Character c)
     {
         _UI_nameTextboxTMP.text = c.LastName + " " + c.FirstName;
         _UI_nameTextboxTMP.color = c.NameColor;
@@ -151,6 +151,11 @@ public class DisplayManager : MonoBehaviour
     public void SetText(string text)
     {
         _UI_textboxTMP.text = text;
+    }
+    
+    public void SetTextNar(string text)
+    {
+        _UI_narrationTextboxTMP.text = text;
     }
 
 
